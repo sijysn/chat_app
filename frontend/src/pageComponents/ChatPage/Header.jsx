@@ -44,7 +44,7 @@ function Header({ userInfo, setScroll, setLoading }) {
 
         <Grid item xs={6}>
           <Typography component="h1" variant="h4" color="primary">
-            Chat Room
+            CHAT ROOM
           </Typography>
         </Grid>
 
