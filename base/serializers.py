@@ -8,6 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
     model = User
     fields = ['id', 'username', 'password', 'is_staff']
 
+
 class UserSerializerWithToken(UserSerializer):
   token = serializers.SerializerMethodField(read_only=True)
   class Meta:
@@ -18,7 +19,13 @@ class UserSerializerWithToken(UserSerializer):
     token = RefreshToken.for_user(obj)
     return str(token.access_token)
 
+
 class MessageSerializer(serializers.ModelSerializer):
+  user = serializers.SerializerMethodField(read_only=True)
   class Meta:
     model = Message
-    fields = '__all__'
+    fields = ['id', 'user_id', 'text', 'sent_at', 'user']
+
+  def get_user(self, obj):
+    user_detail = UserSerializerWithToken(User.objects.get(id=obj.user_id.id)).data
+    return user_detail
