@@ -28,6 +28,8 @@ function ChatPage() {
     }
   }, [messages, scroll]);
 
+  console.log("test");
+
   return (
     <Box>
       <Header
