@@ -22,6 +22,8 @@ class UserSerializerWithToken(UserSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
   user = serializers.SerializerMethodField(read_only=True)
+  sent_at = serializers.DateTimeField(format="%Y %m %d %H %M")
+
   class Meta:
     model = Message
     fields = ['id', 'user_id', 'text', 'sent_at', 'user']
