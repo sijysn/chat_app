@@ -3,25 +3,27 @@ import { Link } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import ChatIcon from "@material-ui/icons/Chat";
 
-function FormHeader({ title, titleColor }) {
+function FormHeader({ title, color }) {
   return (
     <Grid container alignItems="center">
-      <Grid item xs={2}>
+      <Grid item xs={3}>
         <Link to="/">
-          <Typography component="span" variant="h6">
-            戻る
-          </Typography>
+          <IconButton color={color}>
+            <ChatIcon fontSize="large" />
+          </IconButton>
         </Link>
       </Grid>
 
-      <Grid item xs={8}>
-        <Typography component="h1" variant="h4" color={titleColor}>
+      <Grid item xs={6}>
+        <Typography component="h1" variant="h4" color={color}>
           {title}
         </Typography>
       </Grid>
 
-      <Grid item xs={2}></Grid>
+      <Grid item xs={3}></Grid>
     </Grid>
   );
 }
