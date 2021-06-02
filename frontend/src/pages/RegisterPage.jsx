@@ -47,7 +47,7 @@ function RegisterPage() {
   return (
     <Box textAlign="center" maxWidth="320px" m="0 auto" px={3}>
       <Box pt={5} mb={5}>
-        <FormHeader title="ユーザー登録" titleColor="secondary" />
+        <FormHeader title="ユーザー登録" color="secondary" />
       </Box>
 
       {loggingIn || registering ? (

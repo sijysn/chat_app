@@ -37,7 +37,7 @@ function LoginPage() {
   return (
     <Box textAlign="center" maxWidth="320px" m="0 auto" px={3}>
       <Box pt={5} mb={5}>
-        <FormHeader title="ログイン" titleColor="primary" />
+        <FormHeader title="ログイン" color="primary" />
       </Box>
 
       {loading ? (
