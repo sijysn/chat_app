@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 
 import MessageBubble from "./MessageBubble";
 
-function OthersMessage({ username, text }) {
+function OthersMessage({ username, text, date }) {
   return (
     <Box display="flex" flexDirection="column" mr={8} pl={2}>
       <Box display="flex" justifyContent="flex-start" alignItems="center">
@@ -16,6 +16,12 @@ function OthersMessage({ username, text }) {
 
       <Box display="flex" justifyContent="flex-start" alignItems="center">
         <MessageBubble bgColor="#dddddd" color="#000" text={text} />
+      </Box>
+
+      <Box display="flex" justifyContent="flex-start" alignItems="center">
+        <Typography component="span" variant="body2" color="textSecondary">
+          {date}
+        </Typography>
       </Box>
     </Box>
   );
