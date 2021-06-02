@@ -3,84 +3,64 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+
+import FormHeader from "../components/FormHeader";
+import LoginForm from "../pageComponents/LoginPage/LoginForm";
+import Loader from "../components/Loader";
+import ErrorMessage from "../components/ErrorMessage";
+import MessageLink from "../components/MessageLink";
 
 import { login } from "../actions/userActions";
+
+import { USER_LOGIN_ERROR_RESET } from "../consts/userConsts";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const dispatch = useDispatch();
+  const loginHandler = () => dispatch(login(username, password));
+
   const history = useHistory();
 
   const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
-
-  const dispatch = useDispatch();
-  const loginHandler = () => dispatch(login(username, password));
+  const { loading, userInfo, error } = userLogin;
 
   useEffect(() => {
     if (userInfo) history.push("/");
   }, [history, userInfo]);
 
+  useEffect(() => {
+    return () => dispatch({ type: USER_LOGIN_ERROR_RESET });
+  }, [dispatch]);
+
   return (
-    <Box textAlign="center" maxWidth="320px" m="0 auto" p={3}>
-      <Box pt={5}>
-        <Typography component="h1" variant="h3" color="primary" gutterBottom>
-          Login
-        </Typography>
+    <Box textAlign="center" maxWidth="320px" m="0 auto" px={3}>
+      <Box pt={5} mb={5}>
+        <FormHeader title="ログイン" titleColor="primary" />
       </Box>
 
-      <form onSubmit={loginHandler}>
-        <TextField
-          autoFocus
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          label="username"
-          InputLabelProps={{
-            style: { fontSize: "1.5rem" },
-          }}
-          InputProps={{
-            style: { fontSize: "1.5rem" },
-          }}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+      {loading ? (
+        <Loader />
+      ) : (
+        <Box>
+          {error && <ErrorMessage>{error}</ErrorMessage>}
 
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          label="password"
-          InputLabelProps={{
-            style: { fontSize: "1.5rem" },
-          }}
-          InputProps={{
-            style: { fontSize: "1.5rem" },
-          }}
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <LoginForm
+            loginHandler={loginHandler}
+            username={username}
+            setUsername={setUsername}
+            password={password}
+            setPassword={setPassword}
+          />
 
-        <Box mt={5}>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            style={{ width: "100%", padding: "1rem 3rem" }}
-          >
-            <Typography component="span" variant="h6">
-              Login
-            </Typography>
-          </Button>
+          <Box mt={5}>
+            <MessageLink to="/register">
+              アカウントがありませんか？ 登録する
+            </MessageLink>
+          </Box>
         </Box>
-      </form>
+      )}
     </Box>
   );
 }

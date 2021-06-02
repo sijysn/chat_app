@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 
 import { logout } from "../../actions/userActions";
 
-function Header({ userInfo, setScroll, setLoading }) {
+function Header({ userInfo, setScrollBottom, setLoading }) {
   const [loggingOut, setLoggingOut] = useState(false);
 
   const dispatch = useDispatch();
@@ -21,10 +21,10 @@ function Header({ userInfo, setScroll, setLoading }) {
   useEffect(() => {
     if (loggingOut) {
       dispatch(logout());
-      setScroll(true);
+      setScrollBottom(true);
       setLoggingOut(false);
     }
-  }, [dispatch, setScroll, setLoggingOut, loggingOut]);
+  }, [dispatch, setScrollBottom, setLoggingOut, loggingOut]);
 
   return (
     <Box
@@ -34,30 +34,34 @@ function Header({ userInfo, setScroll, setLoading }) {
       alignItems="center"
       width="100%"
       height="8rem"
-      textAlign="center"
       bgcolor="#fff"
       borderBottom="1px solid #f6f6f6"
       p={3}
     >
       <Grid container className="max-width">
-        <Grid item xs={3}></Grid>
+        <Grid item xs={false} sm={3}></Grid>
 
-        <Grid item xs={6}>
-          <Typography component="h1" variant="h4" color="primary">
+        <Grid item xs={userInfo ? 8 : true} sm={6}>
+          <Typography
+            component="h1"
+            variant="h4"
+            color="primary"
+            align={userInfo ? "left" : "center"}
+          >
             CHAT ROOM
           </Typography>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={userInfo ? 4 : false} sm={3}>
           {userInfo && (
-            <Box mr="1rem">
+            <Box textAlign="right">
               <Button
                 variant="outlined"
                 color="primary"
                 onClick={logoutHandler}
               >
                 <Typography component="span" variant="body2">
-                  Logout
+                  ログアウト
                 </Typography>
               </Button>
             </Box>

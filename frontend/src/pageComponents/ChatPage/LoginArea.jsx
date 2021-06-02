@@ -28,7 +28,7 @@ function LoginArea() {
         <Link to="/login">
           <Button color="primary">
             <Typography component="span" variant="h5">
-              Login to send a message
+              ログインして会話に参加する
             </Typography>
           </Button>
         </Link>

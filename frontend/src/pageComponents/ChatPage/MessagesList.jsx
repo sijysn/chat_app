@@ -24,7 +24,7 @@ function MessagesList({ loginId, scrollBottomRef }) {
     repeat();
 
     return () => (isMounted = false);
-  }, []);
+  }, [dispatch]);
 
   return (
     <Box p="2rem 0">

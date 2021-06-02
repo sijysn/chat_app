@@ -9,7 +9,7 @@ import MessageInputArea from "../pageComponents/ChatPage/MessageInputArea";
 import LoginArea from "../pageComponents/ChatPage/LoginArea";
 
 function ChatPage() {
-  const [scroll, setScroll] = useState(true);
+  const [scrollBottom, setScrollBottom] = useState(true);
   const [loading, setLoading] = useState(true);
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -21,18 +21,18 @@ function ChatPage() {
   const scrollBottomRef = useRef(null);
 
   useEffect(() => {
-    if (scrollBottomRef && scrollBottomRef.current && scroll) {
-      setScroll(false);
+    if (scrollBottomRef && scrollBottomRef.current && scrollBottom) {
+      setScrollBottom(false);
       scrollBottomRef.current.scrollIntoView();
       setTimeout(() => setLoading(false), 300);
     }
-  }, [messages, scroll]);
+  }, [messages, scrollBottom]);
 
   return (
     <Box>
       <Header
         userInfo={userInfo}
-        setScroll={setScroll}
+        setScrollBottom={setScrollBottom}
         setLoading={setLoading}
       />
 
@@ -42,7 +42,11 @@ function ChatPage() {
         loading={loading}
       />
 
-      {userInfo ? <MessageInputArea setScroll={setScroll} /> : <LoginArea />}
+      {userInfo ? (
+        <MessageInputArea setScrollBottom={setScrollBottom} />
+      ) : (
+        <LoginArea />
+      )}
     </Box>
   );
 }

@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import { getMessages, sendMessage } from "../../actions/messageActions";
 import { MESSAGE_SEND_RESET } from "../../consts/messageConsts";
 
-function MessageInputArea({ setScroll }) {
+function MessageInputArea({ setScrollBottom }) {
   const [text, setText] = useState("");
 
   const messageSend = useSelector((state) => state.messageSend);
@@ -18,7 +18,7 @@ function MessageInputArea({ setScroll }) {
   const dispatch = useDispatch();
 
   const submitHandler = () => {
-    setScroll(true);
+    setScrollBottom(true);
     dispatch(sendMessage(text));
     setText("");
   };
@@ -44,13 +44,10 @@ function MessageInputArea({ setScroll }) {
       <Box
         borderTop="1px solid #dddddd"
         borderBottom="1px solid #dddddd"
-        padding="2rem 1rem"
+        p={2}
         width="100%"
       >
-        <form
-          onSubmit={submitHandler}
-          style={{ width: "100%", paddingLeft: "4px", paddingRight: "4px" }}
-        >
+        <form onSubmit={submitHandler}>
           <Box
             display="flex"
             width="100%"
@@ -69,10 +66,10 @@ function MessageInputArea({ setScroll }) {
                 autoFocus
                 rowsMax={6}
                 value={text}
-                placeholder="Type a message"
+                placeholder="メッセージを入力してください"
                 onChange={(e) => setText(e.target.value)}
                 style={{
-                  fontSize: "1.5rem",
+                  fontSize: "1.4rem",
                   border: "1rem solid #fafafa",
                 }}
               />
@@ -85,7 +82,7 @@ function MessageInputArea({ setScroll }) {
                 disabled={!text || !text.match(/\S/g) ? true : false}
               >
                 <Typography component="span" variant="h5">
-                  SEND
+                  送信
                 </Typography>
               </Button>
             </Box>
