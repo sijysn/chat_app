@@ -46,7 +46,7 @@ function Header({ userInfo, setScrollBottom, setLoading }) {
             component="h1"
             variant="h4"
             color="primary"
-            align={userInfo ? "left" : "center"}
+            align="center"
           >
             CHAT ROOM
           </Typography>
