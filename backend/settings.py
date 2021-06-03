@@ -193,9 +193,6 @@ if not DEBUG:
     import django_heroku
     django_heroku.settings(locals())
 
-if os.getcwd() == '/app':
-    DEBUG = False
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
