@@ -8,7 +8,7 @@
 
 ▼ Demo はこちらです
 
-https://chatroom3084.herokuapp.com/#/login
+https://chatroom3084.herokuapp.com/#/
 
 ユーザーネーム: Guest
 
