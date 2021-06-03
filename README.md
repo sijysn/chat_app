@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+グループチャットアプリ　<br>
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+# Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+▼ Demo はこちらです
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+https://chatroom3084.herokuapp.com/#/login
 
-### `npm test`
+ユーザーネーム: Guest
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+パスワード： Guest
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 現在の機能
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ログイン機能
+- ログアウト機能
+- ユーザー登録機能
+- メッセージ送信機能　<br>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Requirement
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 環境
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- macOS Big Sur 11.0
+- python(3.9.0)
+- pip(21.0.1)
+- Node(14.15.1)
+- npm(6.14.8)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### バックエンド
 
-### Code Splitting
+- Django (3.2.3)
+- djangorestframework (3.12.4)
+- djangorestframework-simplejwt (4.6.0)
+- PyJWT (2.1.0)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### フロントエンド
 
-### Making a Progressive Web App
+- react (17.0.2)
+- react-scripts (4.0.3)
+- react-dom (17.0.2)
+- react-router-dom (5.2.0)
+- redux (4.1.0)
+- react-redux (7.2.4)
+- redux-devtools-extension (2.13.9)
+- redux-thunk (2.3.0)
+- @material-ui/core (4.11.4)
+- @material-ui/icons (4.11.2)
+- @material-ui/lab (4.0.0-alpha.58)
+- axios (0.21.1)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Author
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Seiji Yoshino
+- sij.ysn25@gmail.com
