@@ -8,7 +8,7 @@ function Loader({ style }) {
   return (
     <Box textAlign="center" m="0 auto" style={style}>
       <CircularProgress size="3rem" color="secondary">
-        <Typography component="srOnly">Loading...</Typography>
+        <Typography variant="srOnly">Loading...</Typography>
       </CircularProgress>
     </Box>
   );
