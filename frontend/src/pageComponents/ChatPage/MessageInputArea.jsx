@@ -18,7 +18,6 @@ function MessageInputArea({ setScrollBottom }) {
   const dispatch = useDispatch();
 
   const submitHandler = () => {
-    setScrollBottom(true);
     dispatch(sendMessage(text));
     setText("");
   };
@@ -27,8 +26,9 @@ function MessageInputArea({ setScrollBottom }) {
     if (success) {
       dispatch({ type: MESSAGE_SEND_RESET });
       dispatch(getMessages());
+      setScrollBottom(true);
     }
-  }, [dispatch, success]);
+  }, [dispatch, success, setScrollBottom]);
 
   return (
     <Box
